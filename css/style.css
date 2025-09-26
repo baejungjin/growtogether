@@ -1,14 +1,7 @@
-@font-face {
-    font-family: 'Juache';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one @1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
-    font-display: swap;
-}
-
 html, body {
     height: 100vh;
     margin: 0;
-    font-family: 'Juache', sans-serif;
+    font-family: 'Pretendard', sans-serif;
 }
 
 body {

@@ -1,12 +1,5 @@
-@font-face {
-    font-family: 'Juache';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one @1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
-    font-display: swap;
-}
-
 body {
-    font-family: 'Juache', sans-serif;
+    font-family: 'Pretendard', sans-serif;
     margin: 0;
     line-height: 1.6;
 }
@@ -46,6 +39,18 @@ nav ul li a {
     margin-top: 0;
 }
 
+.promo-text {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.separator {
+    height: 1px;
+    width: 50px;
+    background-color: #ccc;
+    margin: 4rem auto;
+}
+
 .cta-button {
     display: inline-block;
     background: #333;
@@ -54,6 +59,51 @@ nav ul li a {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 1rem;
+}
+
+.key-points {
+    padding: 2rem 1rem;
+    background-color: #f4f4f4;
+}
+
+.key-points-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.key-point {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.key-point h4 {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.key-point img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.key-point h3 {
+    margin-top: 1.5rem;
 }
 
 .features {
