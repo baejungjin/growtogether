@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Hide the main scrollbar */
+}
+
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-area {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-member {
+    text-align: center;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.team-member h2 {
+    margin: 1rem 0 0.5rem;
+}
+
+.team-member .role {
+    color: #777;
+    font-style: italic;
+}
