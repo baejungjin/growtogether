@@ -1,29 +1,69 @@
+@font-face {
+    font-family: 'Juache';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one @1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
 html, body {
-    height: 100%;
+    height: 100vh;
     margin: 0;
-    overflow: hidden; /* Hide the main scrollbar */
+    font-family: 'Juache', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1rem;
 }
 
 .scroll-container {
-    height: 100vh;
+    flex-grow: 1;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
 
 .scroll-area {
-    height: 100vh;
+    height: 100%;
     scroll-snap-align: start;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .team-member {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 60%;
+}
+
+.scroll-area:nth-child(even) .team-member {
+    flex-direction: row-reverse;
 }
 
 .team-member img {
@@ -33,8 +73,12 @@ html, body {
     object-fit: cover;
 }
 
+.team-member-info {
+    text-align: left;
+}
+
 .team-member h2 {
-    margin: 1rem 0 0.5rem;
+    margin: 0 0 0.5rem;
 }
 
 .team-member .role {
