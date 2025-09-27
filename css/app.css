@@ -103,7 +103,86 @@ nav ul li a {
 }
 
 .key-point h3 {
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.image-showcase {
+    padding: 2rem 0;
+}
+
+.image-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    align-items: center;
+}
+
+.vs-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.showcase-item {
+    text-align: center;
+}
+
+.image-showcase-grid img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.caption h4 {
+    margin: 0.5rem 0 0.2rem;
+    font-size: 1.2rem;
+}
+
+.caption p {
+    margin: 0;
+    color: #666;
+}
+
+.color-palette-showcase {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+}
+
+.palette-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.palette-item {
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.palette-grey {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.palette-white {
+    background-color: #fff;
+    color: #333;
+}
+
+.palette-black {
+    background-color: #333;
+    color: #fff;
 }
 
 .features {
