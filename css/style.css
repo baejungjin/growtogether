@@ -524,3 +524,117 @@ footer { text-align: center; padding: 4rem 2rem 2rem 2rem; color: var(--muted); 
         grid-template-columns: 1fr 1.2fr;
     }
 }
+
+/* Scenarios Section */
+#scenarios {
+    background-color: #F8F8F8; /* Slightly different from --bg for contrast */
+}
+
+.h2-badge {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--muted);
+    background-color: #FADADD;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.scenario-card {
+    background-color: var(--card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: left;
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.scenario-card:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-hover);
+    background-color: #fff;
+}
+
+.scenario-label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.scenario-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.scenario-timeline li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.scenario-timeline li::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: -1.2rem;
+    width: 2px;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--border),
+        var(--border) 4px,
+        transparent 4px,
+        transparent 8px
+    );
+}
+.scenario-timeline li:last-child::before {
+    display: none;
+}
+
+.scenario-timeline .time {
+    font-weight: 600;
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
+
+.scenario-change {
+    background-color: #FBEAE8;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-align: center;
+    margin-top: auto;
+}
+
+.scenario-toggle-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 3rem;
+    box-shadow: var(--shadow);
+}
+
+.scenario-toggle-btn:hover {
+    background-color: var(--white);
+    border-color: var(--text);
+    color: var(--text);
+    box-shadow: var(--shadow-hover);
+}
