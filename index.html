@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="css/style.css">
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Navigation active state observer
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-list a');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -30,9 +30,29 @@
                 observer.observe(section);
             });
             
+            // Close mobile nav on link click
             document.querySelectorAll('.mobile-nav .nav-list a').forEach(link => {
                 link.addEventListener('click', () => {
                     document.getElementById('menu-toggle').checked = false;
+                });
+            });
+
+            // Diary accordion functionality
+            const expandButtons = document.querySelectorAll('.diary-expand-btn');
+            expandButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const card = button.closest('.diary-card-v2');
+                    const details = card.querySelector('.diary-details');
+                    details.classList.toggle('show');
+
+                    const isPremium = button.textContent.includes('🔒');
+                    const isShown = details.classList.contains('show');
+
+                    if (isPremium) {
+                        button.textContent = isShown ? '간략히 보기' : '자세히 보기 🔒';
+                    } else {
+                        button.textContent = isShown ? '간략히 보기' : '자세히 보기';
+                    }
                 });
             });
         });
@@ -252,16 +272,53 @@
 
         <section id="diary-sample">
             <h2>오늘의 성장 일기</h2>
-            <div class="diary-card">
-                <div class="img-placeholder">일기장 아이콘</div>
-                <p>오늘 민서는 낮잠 전 스스로 인형을 안고 눈을 감았어요. 혼자 잠드는 것을 조금씩 연습하며, 스스로를 진정시키는 방법을 배우고 있는 대견한 순간이었습니다.</p>
-                <p>저녁에는 새로운 그림책의 특정 페이지에 오래 머물렀고, 마지막 장을 넘길 때에는 조용한 미소를 지어 보였습니다. 아이의 세상에 새로운 호기심이 싹트는 소리가 들리는 듯합니다.</p>
-                <div class="keyword-tags">
-                    <div class="pill-tag">#자립심</div>
-                    <div class="pill-tag">#호기심</div>
-                    <div class="pill-tag">#안정감</div>
+            <p>하루 동안의 활동을 바탕으로 AI가 아이의 성장을 이야기로 풀어냅니다. 무료 요약과 포인트로 확인하는 프리미엄 일기를 만나보세요.</p>
+            <div class="diary-grid">
+                <!-- Free Diary Card -->
+                <div class="diary-card-v2">
+                    <div class="diary-card-content">
+                        <h3>무료 요약 일기</h3>
+                        <p class="diary-summary-text">"오늘 민서는 낮잠 전 스스로 인형을 안고 눈을 감았어요. 혼자 잠드는 작은 연습을 하고 있습니다."</p>
+                        <div class="keyword-tags">
+                            <span class="pill-tag">#자립심</span>
+                            <span class="pill-tag">#호기심</span>
+                            <span class="pill-tag">#안정감</span>
+                        </div>
+                    </div>
+                    <div class="diary-details">
+                        <h4>상세 내용</h4>
+                        <p>민서는 오늘 스스로 잠드는 중요한 첫걸음을 내디뎠습니다. 이는 안정감을 느끼고 있다는 긍정적인 신호입니다.</p>
+                        <h4>성장 의미</h4>
+                        <p>자신을 진정시키는 방법을 배우는 것은 아이의 독립심 발달에 매우 중요합니다. 오늘의 작은 시도는 큰 성장의 발판이 될 것입니다.</p>
+                        <h4>내일을 위한 조언</h4>
+                        <p>"아이가 스스로 잠들려고 할 때, 잠시 지켜봐 주세요. 부모의 신뢰가 아이에게 큰 용기를 줍니다."</p>
+                    </div>
+                    <button class="diary-expand-btn">자세히 보기</button>
                 </div>
-                <p class="diary-insight">오늘은 아이의 독립심을 응원하는 날입니다.</p>
+
+                <!-- Premium Diary Card -->
+                <div class="diary-card-v2 premium">
+                    <div class="premium-label">🔒 포인트 전용</div>
+                    <div class="diary-card-content">
+                        <h3>🌼 오늘의 프리미엄 일기</h3>
+                        <p class="diary-summary-text">시간대별 활동을 통해 아이의 하루를 더 깊이 이해하고, 내일을 위한 맞춤 조언을 확인해보세요.</p>
+                         <ul class="premium-timeline">
+                            <li><strong>아침 9시:</strong> 아이가 숟가락을 스스로 잡으려는 노력을 보였습니다.</li>
+                            <li><strong>낮 1시:</strong> 산책하며 나뭇잎을 만지고 바람을 느끼며 작은 호기심을 키웠습니다.</li>
+                            <li><strong>저녁 7시:</strong> 아빠와 목욕 후 책을 읽으며 하루를 차분히 마무리했습니다.</li>
+                        </ul>
+                    </div>
+                    <div class="diary-details">
+                        <h4>상세 내용 및 성장 의미</h4>
+                        <p>오늘 아이는 스스로 하고자 하는 의지를 여러 번 보여주었습니다. 숟가락을 잡으려는 시도는 소근육 발달과 자립심의 표현이며, 자연을 느끼는 모습은 감각 발달과 세상에 대한 호기심이 커지고 있음을 의미합니다. 하루를 책으로 마무리하는 습관은 정서적 안정감을 더해줍니다.</p>
+                        <h4>👉 내일을 위한 조언</h4>
+                        <p>"숟가락 사용은 서툴러도 스스로 시도하도록 지켜봐 주세요. 아이의 성취감을 응원해주는 것이 중요합니다."</p>
+                    </div>
+                    <div class="premium-action">
+                        <button class="diary-expand-btn">자세히 보기 🔒</button>
+                        <span class="point-cost">| 200P 차감</span>
+                    </div>
+                </div>
             </div>
         </section>
 
