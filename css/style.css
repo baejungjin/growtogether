@@ -346,3 +346,80 @@ footer { text-align: center; padding: 4rem 2rem 2rem 2rem; color: var(--muted); 
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* Insights Section */
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+}
+
+.insight-card {
+    background-color: var(--card);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.insight-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.insight-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FBEAE8;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem auto;
+}
+
+.insight-card h3 {
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.insight-card .quote {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.insight-card .interpretation {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
+
+.source-link {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    margin-top: auto;
+    align-self: center;
+    transition: color 0.3s;
+}
+
+.source-link:hover {
+    color: var(--primary);
+}
+
+@media (min-width: 992px) {
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
