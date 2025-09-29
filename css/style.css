@@ -1,7 +1,22 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  --primary: #D26A5C; /* 로고 컬러 */
+  --bg: #FAF9F9;      /* 베이지 톤 배경 */
+  --text: #333333;
+  --card: #FFFFFF;
+  --muted: #777777;
+  --white: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
 html, body {
-    height: 100vh;
+    height: 100%;
     margin: 0;
     font-family: 'Pretendard', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
 }
 
 body {
@@ -9,14 +24,59 @@ body {
     flex-direction: column;
 }
 
+main {
+    flex-grow: 1;
+    width: 100%;
+}
+
+section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--muted);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Header */
 header {
-    background: #333;
-    color: #fff;
+    background: var(--card);
+    color: var(--text);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
+    box-shadow: var(--shadow);
 }
 
 nav ul {
@@ -28,15 +88,161 @@ nav ul {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
-    padding: 0 1rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus-visible {
+    background-color: var(--primary);
+    color: var(--white);
+    outline: none;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--white);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.hero .promo-text {
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+}
+
+/* Buttons */
+.download-button {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0.5rem;
+    border: 2px solid var(--primary);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.hero .download-button {
+    background-color: var(--white);
+    color: var(--primary);
+    border-color: var(--white);
+}
+
+.download-button:hover {
+    background-color: transparent;
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.hero .download-button:hover {
+    background-color: transparent;
+    color: var(--white);
+}
+
+/* Key Points */
+.key-points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.key-point img {
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.key-point h3 {
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+/* Features Section */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature {
+    background-color: var(--card);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+/* How it Works */
+.steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.step {
+    text-align: center;
+}
+
+.step img {
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.step span {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    color: var(--text);
+}
+
+/* Community & Download */
+.community-teaser, .download {
+    background-color: var(--card);
+}
+
+/* Team Page */
+.team-intro {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
 }
 
 .scroll-container {
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-snap-type: y mandatory;
+    height: calc(100vh - 70px); /* Adjust based on header height */
 }
 
 .scroll-area {
@@ -46,21 +252,21 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    padding: 2rem 0;
 }
 
 .team-member {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    background-color: #fff;
+    gap: 1.5rem;
+    background-color: var(--card);
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 60%;
-}
-
-.scroll-area:nth-child(even) .team-member {
-    flex-direction: row-reverse;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
 }
 
 .team-member img {
@@ -71,14 +277,45 @@ nav ul li a {
 }
 
 .team-member-info {
-    text-align: left;
+    text-align: center;
 }
 
 .team-member h2 {
     margin: 0 0 0.5rem;
+    font-size: 1.5rem;
 }
 
 .team-member .role {
-    color: #777;
+    color: var(--primary);
     font-style: italic;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.team-member p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .team-member {
+        flex-direction: row;
+        gap: 2rem;
+        text-align: left;
+        width: 60%;
+        max-width: 600px;
+    }
+
+    .scroll-area:nth-child(even) .team-member {
+        flex-direction: row-reverse;
+    }
+    
+    .team-member-info {
+        text-align: left;
+    }
 }
