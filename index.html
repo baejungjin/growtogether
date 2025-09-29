@@ -8,24 +8,73 @@
     <meta property="og:description" content="발달 단계·연령·상황에 맞춘 놀이·학습·돌봄 루틴을 AI가 제안합니다. 부모는 체크만 하면 됩니다.">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-list a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').endsWith('#' + entry.target.id)) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            document.querySelectorAll('.mobile-nav .nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('menu-toggle').checked = false;
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">앱 소개</a></li>
+        <a href="#hero" class="logo">같이키우기</a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="desktop-nav">
+            <ul class="nav-list">
+                <li><a href="#hero">홈</a></li>
+                <li><a href="#timeline">하루 설계</a></li>
+                <li><a href="#diary-sample">성장 기록</a></li>
+                <li><a href="#testimonials">부모 후기</a></li>
                 <li><a href="team.html">팀 소개</a></li>
+                <li class="nav-cta"><a href="#cta">시작하기</a></li>
+            </ul>
+        </nav>
+        <nav class="mobile-nav">
+            <ul class="nav-list">
+                <li><a href="#hero">홈</a></li>
+                <li><a href="#timeline">하루 설계</a></li>
+                <li><a href="#diary-sample">성장 기록</a></li>
+                <li><a href="#testimonials">부모 후기</a></li>
+                <li><a href="team.html">팀 소개</a></li>
+                <li class="nav-cta"><a href="#cta">시작하기</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="hero">
             <h1>AI가 제안하는 우리 아이 하루</h1>
-            <p class="subtitle">발달 단계·연령·상황에 맞춘 놀이·학습·돌봄 루틴</p>
-            <p class="promo-text">부모는 체크만 하면 됩니다.</p>
+            <p>아침마다 ‘오늘은 뭘 해줘야 하지?’ 고민되시죠? 같이 키우기는 아이 발달 단계와 부모 상황을 고려한 하루 루틴을 제안합니다. 부모는 체크만 하고, 나머지는 AI가 함께합니다.</p>
             <div class="hero-buttons">
-                <a href="#cta" class="cta-button">오늘부터 시작하기</a>
+                <a href="#cta" class="cta-button primary">오늘부터 시작하기</a>
                 <a href="#features" class="cta-button secondary">앱 살펴보기</a>
             </div>
             <div class="trust-badges">
@@ -36,6 +85,7 @@
         </section>
 
         <section id="comparison">
+            <p>기존 육아는 흩어진 정보와 반복된 고민으로 힘들었습니다. 이제는 하나의 앱에서 더 쉽게 시작하세요.</p>
             <div class="comparison-grid">
                 <div class="comparison-side">
                     <h3>지금까지의 육아</h3>
@@ -61,13 +111,15 @@
 
         <section id="timeline">
             <h2>오늘 이렇게 설계돼요</h2>
-            <p>아이 연령·컨디션에 맞게 AI가 루틴을 짜줍니다.</p>
+            <p>아이 연령·컨디션에 맞게 AI가 루틴을 짜줍니다. 부모는 아이와 즐겁게 활동하고 체크만 하세요.</p>
+            
+            <h3 class="timeline-label">☀️ 아침</h3>
             <div class="timeline-container">
                 <div class="timeline-item">
                     <div class="timeline-card">
                         <span class="time">07:30</span>
-                        <h4 class="activity">기상 & 포옹</h4>
-                        <p class="detail">아침 햇살과 함께 일어나 애착을 형성해요.</p>
+                        <h4 class="activity">기상 & 아침 포옹</h4>
+                        <p class="detail"><b>발달 의미:</b> 아침 햇살과 함께 일어나 포옹하며 하루를 시작합니다. 부모와의 스킨십은 아이에게 정서적 안정감을 주며 애착 관계를 강화합니다.<br><b>행동 팁:</b> 아이 눈을 맞추고 “잘 잤니?”라고 인사하며 1분 이상 꼭 안아주세요.</p>
                         <div class="img-placeholder">기상 아이콘</div>
                     </div>
                 </div>
@@ -75,59 +127,59 @@
                     <div class="timeline-card">
                         <span class="time">08:10</span>
                         <h4 class="activity">감각 놀이 (소리 찾기)</h4>
-                        <p class="detail">주변의 소리에 집중하며 청각 발달을 도와요.</p>
+                        <p class="detail"><b>발달 의미:</b> 주방에서 나는 소리, 창밖의 자동차 소리에 집중하며 청각 발달을 돕습니다. 아이의 집중력과 관찰력을 자연스럽게 키울 수 있습니다.<br><b>행동 팁:</b> “이건 무슨 소리지?” 질문하며 아이의 호기심을 자극해주세요.</p>
                         <div class="img-placeholder">놀이 아이콘</div>
                     </div>
                 </div>
+            </div>
+
+            <h3 class="timeline-label" style="margin-top: 3rem;">☀️ 낮</h3>
+            <div class="timeline-container">
                 <div class="timeline-item">
                     <div class="timeline-card">
                         <span class="time">12:30</span>
                         <h4 class="activity">낮잠 루틴 (조용한 음악)</h4>
-                        <p class="detail">일정한 ритуал로 안정적인 수면 습관을 만들어요.</p>
+                        <p class="detail"><b>발달 의미:</b> 매일 같은 시간에 조용한 음악을 들으며 잠자리에 듭니다. 일정한 수면 리추얼은 아이의 수면 습관을 안정시키고 성장 호르몬 분비를 돕습니다.<br><b>행동 팁:</b> 음악을 틀어주고 5분 정도 옆에 함께 있어주세요. 아이가 안정감을 느낍니다.</p>
                         <div class="img-placeholder">낮잠 아이콘</div>
                     </div>
                 </div>
+            </div>
+
+            <h3 class="timeline-label" style="margin-top: 3rem;">🌙 저녁</h3>
+            <div class="timeline-container">
                 <div class="timeline-item">
                     <div class="timeline-card">
                         <span class="time">18:30</span>
                         <h4 class="activity">저녁 후 그림책 읽기</h4>
-                        <p class="detail">상상력과 언어 능력을 키우는 시간이에요.</p>
+                        <p class="detail"><b>발달 의미:</b> 아이가 직접 고른 그림책을 함께 읽으며 상상력과 언어 능력을 키웁니다. 책에 대한 긍정적인 경험은 평생의 독서 습관으로 이어집니다.<br><b>행동 팁:</b> 아이가 그림을 손으로 짚으면, 그 사물의 이름을 반복해서 말해주세요.</p>
                         <div class="img-placeholder">그림책 아이콘</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-card">
-                        <span class="time">20:30</span>
-                        <h4 class="activity">취침 루틴 (조도 낮추기)</h4>
-                        <p class="detail">편안한 잠자리를 위한 환경을 조성해요.</p>
-                        <div class="img-placeholder">취침 아이콘</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="features">
-            <h2>핵심 기능</h2>
+            <h2>모든 순간을 AI와 함께</h2>
             <div class="grid-4">
                 <div class="card">
                     <div class="img-placeholder">일정 아이콘</div>
                     <h3>AI 일정 추천</h3>
-                    <p>하루 루틴 자동 생성</p>
+                    <p>아이의 연령, 발달 단계, 그날의 컨디션까지 고려해 최적의 하루 루틴을 자동으로 생성합니다. 더 이상 ‘무엇을 할까’ 고민하지 마세요.<br><b>예:</b> 18개월, 컨디션 ‘좋음’ 입력 → ‘소근육 발달 놀이’ 포함된 루틴 제안</p>
                 </div>
                 <div class="card">
                     <div class="img-placeholder">상담 아이콘</div>
                     <h3>AI 육아 상담</h3>
-                    <p>24시간 질문 응답</p>
+                    <p>수면, 식사, 훈육 등 어려운 질문이 생길 때, 논문과 공공기관 데이터를 학습한 AI가 24시간 언제든지 답변해드립니다.<br><b>예:</b> “밤에 자주 깨요” 질문 → 원인 분석 및 단계별 수면 교육 팁 제공</p>
                 </div>
                 <div class="card">
                     <div class="img-placeholder">일기 아이콘</div>
                     <h3>AI 육아일기</h3>
-                    <p>기록을 의미 있는 이야기로</p>
+                    <p>하루 동안 체크한 활동들을 바탕으로 아이의 성장에 어떤 의미가 있었는지, 감동적인 이야기로 풀어낸 일기를 자동으로 생성합니다.<br><b>예:</b> ‘오늘 숟가락을 들었어요’ 체크 → ‘독립심이 자라는 멋진 신호’로 기록</p>
                 </div>
                 <div class="card">
                     <div class="img-placeholder">확장팩 아이콘</div>
                     <h3>포인트 & 확장팩</h3>
-                    <p>놀이팩·맞벌이팩·건강팩</p>
+                    <p>루틴을 완료하고 포인트를 모아보세요. 몬테소리, 맞벌이 부모를 위한 특별 팩 등 더 다채로운 활동을 잠금 해제할 수 있습니다.<br><b>예:</b> 1000포인트 적립 → ‘주말 특별 활동 팩’ 구매</p>
                 </div>
             </div>
         </section>
@@ -136,8 +188,14 @@
             <h2>오늘의 성장 일기</h2>
             <div class="diary-card">
                 <div class="img-placeholder">일기장 아이콘</div>
-                <p>오늘 민서는 낮잠 전 스스로 인형을 안고 눈을 감았어요. "혼자 잠들기"를 연습하려는 모습이었어요.</p>
-                <p>저녁엔 새로운 그림책에 오래 머물렀고, 마지막 페이지를 넘길 때 조용히 미소 지었어요. 오늘의 키워드는 <strong>호기심</strong>과 <strong>안정감</strong>입니다.</p>
+                <p>오늘 민서는 낮잠 전 스스로 인형을 안고 눈을 감았어요. 혼자 잠드는 것을 조금씩 연습하며, 스스로를 진정시키는 방법을 배우고 있는 대견한 순간이었습니다.</p>
+                <p>저녁에는 새로운 그림책의 특정 페이지에 오래 머물렀고, 마지막 장을 넘길 때에는 조용한 미소를 지어 보였습니다. 아이의 세상에 새로운 호기심이 싹트는 소리가 들리는 듯합니다.</p>
+                <div class="keyword-tags">
+                    <div class="pill-tag">#자립심</div>
+                    <div class="pill-tag">#호기심</div>
+                    <div class="pill-tag">#안정감</div>
+                </div>
+                <p class="diary-insight">오늘은 아이의 독립심을 응원하는 날입니다.</p>
             </div>
         </section>
 
@@ -147,22 +205,22 @@
                 <div class="card">
                     <div class="img-placeholder">몬테소리 아이콘</div>
                     <h3>몬테소리 놀이 팩</h3>
-                    <p>감각 중심 미션</p>
+                    <p>쌀 붓기, 물 따르기 등 일상 속 도구를 활용한 놀이로 아이의 소근육과 감각 발달을 촉진합니다. 스스로 해내는 기쁨을 선물하세요.<br><b>예:</b> 콩 옮기기 놀이로 집중력 향상</p>
                 </div>
                 <div class="card">
                     <div class="img-placeholder">맞벌이 아이콘</div>
                     <h3>맞벌이 부모 팩</h3>
-                    <p>짧고 굵은 루틴</p>
+                    <p>퇴근 후 30분, 주말 오전 1시간. 짧지만 아이와 깊게 교감할 수 있는 고농축 상호작용 루틴을 제안합니다.<br><b>예:</b> 퇴근 후 15분, ‘오늘의 감정 나누기’ 루틴</p>
                 </div>
                 <div class="card">
                     <div class="img-placeholder">건강 아이콘</div>
                     <h3>건강·수면 관리 팩</h3>
-                    <p>수면 추적 & 팁</p>
+                    <p>아이의 수면 시간, 패턴, 식단 기록을 바탕으로 건강한 성장 리포트를 제공하고, 맞춤형 수면 교육 팁을 드립니다.<br><b>예:</b> 수면 패턴 분석 후 ‘밤중 수유 줄이기’ 팁 제공</p>
                 </div>
                 <div class="card">
                     <div class="img-placeholder">특별한 날 아이콘</div>
                     <h3>특별한 하루 팩</h3>
-                    <p>생일/여행/주말</p>
+                    <p>생일, 명절, 여행 등 특별한 날을 더 의미있게 보낼 수 있는 활동 가이드를 제공합니다. 소중한 날을 멋진 추억으로 만드세요.<br><b>예:</b> 생일 당일, ‘가족 보물찾기’ 활동 제안</p>
                 </div>
             </div>
         </section>
@@ -171,16 +229,36 @@
             <h2>부모님의 한 줄 후기</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"검색 대신 실행하게 됐어요. 아침이 덜 막막해요."</p>
+                    <p>"검색 대신 실행하게 됐어요. 아침이 덜 막막해요. 아이랑 뭘 할지 고민하는 시간이 줄고, 그냥 같이 웃는 시간이 늘었어요. AI가 추천해주니 그냥 믿고 따라하게 돼요."</p>
+                    <div class="testimonial-profile">
+                        <div class="img-placeholder"></div>
+                        <div>
+                            <h4>김수진 님</h4>
+                            <span>32세, 2세 아이 맞벌이 엄마</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"리포트로 서로의 수고가 보이니 말다툼이 줄었어요."</p>
+                    <p>"리포트로 서로의 수고가 보이니 말다툼이 줄었어요. 남편이 오늘은 이런 놀이를 했구나, 나는 이걸 했구나 앱으로 공유가 되니까 좋네요. 서로 고생했다 말해주게 돼요."</p>
+                    <div class="testimonial-profile">
+                        <div class="img-placeholder"></div>
+                        <div>
+                            <h4>박서준 님</h4>
+                            <span>35세, 18개월 아이 아빠</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"포인트 모으는 재미로 아이와 노는 시간이 늘었어요."</p>
+                    <p>"포인트 모으는 재미로 아이와 노는 시간이 늘었어요. 아이가 먼저 ‘우리 오늘 도장 몇 개 모았어?’ 물어봐요. 보상 시스템이 있으니 아이도 더 즐거워하는 것 같아요."</p>
+                    <div class="testimonial-profile">
+                        <div class="img-placeholder"></div>
+                        <div>
+                            <h4>이하나 님</h4>
+                            <span>30세, 4세 아이 엄마</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="img-placeholder" style="height: 250px; max-width: 400px; margin: 3rem auto 0 auto;">페르소나/사용자 일러스트</div>
         </section>
 
         <section id="faq">
@@ -189,25 +267,25 @@
                 <details class="faq-item">
                     <summary>AI가 추천하는 루틴이 아이와 맞지 않으면 어떡하나요?</summary>
                     <div class="faq-answer">
-                        <p>언제든지 대체 활동을 제안받을 수 있습니다. 부모님의 피드백은 다음 추천에 즉시 반영되어 AI 모델이 우리 아이에게 맞춰 성장합니다.</p>
+                        <p>언제든지 ‘대체 활동’ 버튼을 눌러 다른 활동을 제안받을 수 있습니다. 예를 들어, 활동적인 아이가 낮잠을 싫어한다면, AI는 이를 학습해 ‘조용한 독립 놀이’ 루틴으로 자동 대체 제안합니다. 부모님의 피드백이 쌓일수록 AI는 우리 아이에게 더 잘 맞춰갑니다.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>아이의 데이터는 안전하게 관리되나요?</summary>
                     <div class="faq-answer">
-                        <p>네, 저희는 최소한의 정보만을 수집하며, 모든 데이터는 안전하게 암호화됩니다. 원하실 경우 언제든 모든 기록을 즉시 삭제할 수 있습니다.</p>
+                        <p>네, 저희는 개인을 식별할 수 없는 최소한의 정보(아이의 연령, 활동 피드백)만을 수집하며, 모든 데이터는 업계 표준에 따라 안전하게 암호화됩니다. 원하실 경우 언제든 앱 내에서 모든 기록을 즉시 삭제할 수 있습니다.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>확장팩을 꼭 구매해야 하나요?</summary>
                     <div class="faq-answer">
-                        <p>아닙니다. 기본적으로 제공되는 루틴만으로도 충분히 서비스를 이용하실 수 있습니다. 확장팩은 더 다양하고 특화된 활동을 원하시는 분들을 위한 선택 사항입니다.</p>
+                        <p>아닙니다. 기본적으로 제공되는 루틴만으로도 충분히 서비스를 이용하실 수 있습니다. 확장팩은 몬테소리, 미술 치료 등 특정 분야에 더 깊이있는 활동을 원하시는 분들을 위한 선택 사항이며, 활동으로 모은 포인트로도 구매 가능합니다.</p>
                     </div>
                 </details>
                 <details class="faq-item">
                     <summary>맞벌이라 아이와 함께할 시간이 부족해요.</summary>
                     <div class="faq-answer">
-                        <p>‘같이 키우기’는 맞벌이 부모님을 위한 ‘10분 몰입 루틴’을 제공합니다. 짧은 시간이라도 아이와 깊게 교감할 수 있는 활동을 추천해드립니다.</p>
+                        <p>‘같이 키우기’는 맞벌이 부모님을 위한 ‘10분 몰입 루틴’, ‘퇴근 후 30분 루틴’ 등을 제공합니다. 짧은 시간이라도 아이와 깊게 교감하고, 의미있는 시간을 보낼 수 있도록 돕는 것이 저희의 중요한 목표 중 하나입니다.</p>
                     </div>
                 </details>
             </div>
@@ -220,6 +298,7 @@
                     <a href="#" class="cta-button">App Store</a>
                     <a href="#" class="cta-button">Google Play</a>
                 </div>
+                <p class="beta-note">베타 테스터 모집 중 – 지금 신청하세요!</p>
             </div>
         </section>
     </main>
@@ -227,9 +306,9 @@
     <footer>
         <p>&copy; 2025 같이 키우기. All Rights Reserved.</p>
         <ul class="footer-links">
-            <li><a href="mailto:contact@growtogether.app">이메일</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Notion</a></li>
+            <li><a href="mailto:contact@growtogether.app">팀 연락처</a></li>
+            <li><a href="#" target="_blank">GitHub</a></li>
+            <li><a href="#" target="_blank">Notion</a></li>
         </ul>
     </footer>
 </body>
