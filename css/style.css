@@ -80,18 +80,23 @@ header { background: var(--card); padding: 0 2rem; position: sticky; top: 0; z-i
 .pill-tag.solution { background-color: var(--dark); color: var(--white); }
 .comparison-vs { font-size: 3rem; font-weight: 900; color: var(--primary); display: none; }
 
-/* Timeline */
-.timeline-label { font-weight: 700; font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem; display: inline-block; }
-.timeline-container { position: relative; max-width: 400px; margin: 3rem auto 0; }
-.timeline-container::after { content: ''; position: absolute; width: 3px; background-color: #e0e0e0; top: 0; bottom: 0; left: 20px; margin-left: -1.5px; }
-.timeline-item { padding: 1rem 1rem 1rem 60px; position: relative; }
-.timeline-item::after { content: ''; position: absolute; width: 25px; height: 25px; background-color: var(--bg); border: 4px solid var(--primary); top: 22px; left: 8px; border-radius: 50%; z-index: 1; }
-.timeline-card { background: var(--card); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); text-align: left; transition: all 0.3s ease; }
-.timeline-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: var(--shadow-hover); }
-.timeline-card .time { font-weight: 700; color: var(--primary); display: block; margin-bottom: 0.5rem; }
-.timeline-card .activity { font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
-.timeline-card .detail { font-size: 0.95rem; color: var(--muted); margin: 0; }
-.timeline-card .img-placeholder { width: 100%; height: 80px; margin-top: 1rem; }
+/* Timeline V2 */
+.timeline-label { font-weight: 700; font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem; display: block; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; }
+.timeline-v2-container { max-width: 800px; margin: 1rem auto 0; }
+.timeline-v2-item { background: var(--card); border-radius: var(--radius); margin-bottom: 1.5rem; box-shadow: var(--shadow); transition: all 0.3s ease; text-align: left; }
+.timeline-v2-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.timeline-v2-item[open] { box-shadow: var(--shadow-hover); }
+.timeline-v2-summary { padding: 1.5rem 2rem; cursor: pointer; outline: none; list-style: none; position: relative; }
+.timeline-v2-summary::-webkit-details-marker { display: none; }
+.timeline-v2-summary .time { font-weight: 700; color: var(--primary); display: block; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.timeline-v2-summary .activity { font-weight: 600; color: var(--text); margin-bottom: 0.75rem; font-size: 1.25rem; margin-top: 0; }
+.timeline-v2-summary .ai-notification { font-size: 1rem; color: var(--muted); margin: 0; }
+.details-button { display: inline-block; margin-top: 1rem; background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; }
+.details-button:hover { background: var(--primary); color: var(--white); }
+.timeline-v2-item[open] .details-button { display: none; }
+.timeline-v2-content { padding: 0 2rem 1.5rem; color: var(--muted); }
+.timeline-v2-content p { font-size: 0.95rem; margin: 0; }
+.working-parent-routine { background-color: #FBEAE8; }
 
 /* Card Base & Grids */
 .card { background-color: var(--card); padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); text-align: left; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
@@ -180,14 +185,6 @@ footer { text-align: center; padding: 4rem 2rem 2rem 2rem; color: var(--muted); 
     .comparison-grid { grid-template-columns: 1fr auto 1fr; gap: 1rem; }
     .comparison-vs { display: block; }
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .timeline-container { max-width: 100%; }
-    .timeline-container::after { left: 50%; }
-    .timeline-item { width: 50%; padding: 1rem 40px; }
-    .timeline-item:nth-child(odd) { left: 0; padding-left: 0; text-align: right; }
-    .timeline-item:nth-child(odd) .timeline-card { text-align: right; }
-    .timeline-item:nth-child(even) { left: 50%; padding-right: 0; }
-    .timeline-item::after { left: -12.5px; }
-    .timeline-item:nth-child(odd)::after { left: auto; right: -12.5px; }
     .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
     .team-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 }
