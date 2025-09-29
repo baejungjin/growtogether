@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>우리 팀을 소개합니다</title>
+    <title>우리 팀을 소개합니다 – 같이 키우기</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,64 +13,54 @@
         <nav>
             <ul>
                 <li><a href="index.html" aria-label="앱 소개 페이지로 이동">앱 소개</a></li>
-                <li><a href="team.html" aria-label="팀 소개 페이지로 이동">팀 소개</a></li>
+                <li><a href="team.html" class="active" aria-label="팀 소개 페이지로 이동">팀 소개</a></li>
             </ul>
         </nav>
     </header>
-    <div class="team-intro">
-        <p>AI 기반 육아 루틴 추천 서비스 ‘같이 키우기’를 만드는 팀입니다.</p>
-    </div>
-    <div class="scroll-container">
-        <section class="scroll-area">
-            <div class="team-member">
-                <img src="images/chunyj_.jpg" alt="전유정 팀장(서비스 기획 & PM) 프로필 사진">
-                <div class="team-member-info">
+
+    <main>
+        <section id="team">
+            <div class="team-intro">
+                <h2>Team</h2>
+                <p>AI 기반 육아 루틴 추천 서비스 ‘같이 키우기’를 만드는 팀입니다.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member card">
+                    <img src="images/chunyj_.jpg" alt="전유정 (팀장 / 서비스 기획 & PM) 프로필 사진">
                     <h2>전유정</h2>
-                    <p class="role">팀장 / 서비스 기획 & PM</p>
+                    <span class="role">팀장 / 서비스 기획 & PM</span>
                     <p>‘같이 키우기’ 기획 총괄<br>창업 교육 2회 이수<br>K-12 해커톤 결선 경험</p>
                 </div>
-            </div>
-        </section>
-        <section class="scroll-area">
-            <div class="team-member">
-                <img src="images/leeyeeun_.jpg" alt="이예은 팀원(기획·발표·PPT) 프로필 사진">
-                <div class="team-member-info">
+                <div class="team-member card">
+                    <img src="images/leeyeeun_.jpg" alt="이예은 (기획·발표·PPT) 프로필 사진">
                     <h2>이예은</h2>
-                    <p class="role">기획·발표·PPT</p>
+                    <span class="role">기획·발표·PPT</span>
                     <p>발표/문서화 담당<br>사용자 커뮤니케이션</p>
                 </div>
-            </div>
-        </section>
-        <section class="scroll-area">
-            <div class="team-member">
-                <img src="images/baejungjin_.JPG" alt="배정진 팀원(기획·디자인) 프로필 사진">
-                <div class="team-member-info">
+                <div class="team-member card">
+                    <img src="images/baejungjin_.JPG" alt="배정진 (기획·디자인) 프로필 사진">
                     <h2>배정진</h2>
-                    <p class="role">기획·디자인</p>
+                    <span class="role">기획·디자인</span>
                     <p>IT 창업 동아리 임원<br>프롬프톤 은상</p>
                 </div>
-            </div>
-        </section>
-        <section class="scroll-area">
-            <div class="team-member">
-                <img src="images/leesubin_.jpg" alt="이수빈 팀원(백엔드 개발) 프로필 사진">
-                <div class="team-member-info">
+                <div class="team-member card">
+                    <img src="images/leesubin_.jpg" alt="이수빈 (백엔드 개발) 프로필 사진">
                     <h2>이수빈</h2>
-                    <p class="role">백엔드 개발</p>
+                    <span class="role">백엔드 개발</span>
                     <p>로컬 환경·API 연동<br>데이터 처리</p>
                 </div>
-            </div>
-        </section>
-        <section class="scroll-area">
-            <div class="team-member">
-                <img src="images/kimjiu_.jpg" alt="김지유 팀원(Dev) 프로필 사진">
-                <div class="team-member-info">
+                <div class="team-member card">
+                    <img src="images/kimjiu_.jpg" alt="김지유 (Dev) 프로필 사진">
                     <h2>김지유</h2>
-                    <p class="role">Dev</p>
+                    <span class="role">Dev</span>
                     <p>해커톤 결선 경험<br>백엔드·AI 연동</p>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 같이 키우기. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
